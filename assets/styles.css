@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: CustomFont;
+    src: url(../font.otf);
+}
+
+:root.dark-red {
+    /* colors */
+    --primary-bg: rgb(25, 0, 3);
+    --light-text-clr: rgb(220, 240, 210);
+    --light-text-second-clr: rgb(131, 132, 131);
+    --logo-dark-transparent-bg: rgba(0, 0, 0, .5);
+    --form-bg: rgba(203, 0, 26, .2);
+    --selected-theme-bg: rgb(107, 25, 35);
+    --form-primary-clr: rgb(253, 169, 93);
+    --form-input-bg: rgba(212, 83, 100, 0.3);
+
+    /* fonts/sizes */
+    --body-font:  'Roboto', sans-serif;
+    --logo-font: CustomFont;
+    --input-font:'Source Code Pro', monospace;
+    --font-size: clamp(1rem, 1vw, 1.5rem);
+    --logo-font-size: clamp(1.75rem, 3vw, 3rem);
+    --credit-font-size: clamp(.6rem, .5vw, 1rem);
+
+    /* section padding/margin */
+    --section-padding: 3rem clamp(1rem, 5%, 5rem);
+
+    /* images */
+    --hero-image: url('../images/christian-wiediger-XfSk_BMLj0A-unsplash.jpg') no-repeat;
+
+}
+
+:root.blue {
+    /* colors */
+    --primary-bg: rgb(3, 0, 25);
+    --light-text-clr: rgb(220, 240, 210);
+    --light-text-second-clr: rgb(131, 132, 131);
+    --logo-dark-transparent-bg: rgba(0, 0, 0, .5);
+    --form-bg: rgba(26, 0, 203, .2);
+    --selected-theme-bg: rgb(25, 35, 107);
+    --form-primary-clr: rgb(93, 169, 253);
+    --form-input-bg:rgba(100, 83, 212, 0.3);
+
+    /* fonts/sizes */
+    --body-font:  'Roboto', sans-serif;
+    --logo-font: CustomFont;
+    --input-font:'Source Code Pro', monospace;
+    --font-size: clamp(1rem, 1vw, 1.5rem);
+    --logo-font-size: clamp(1.75rem, 3vw, 3rem);
+    --credit-font-size: clamp(.6rem, .5vw, 1rem);
+
+    /* section padding/margin */
+    --section-padding: 3rem clamp(1rem, 5%, 5rem);
+
+    /* images */
+    --hero-image: url('../images/christian-wiediger-KV2vFOYItcY-unsplash.jpg') no-repeat;
+
+}
+
+:root.light {
+    /* colors */
+    --primary-bg: #E3E3ED;
+    --light-text-clr: #010617;
+    --light-text-second-clr: rgb(131, 132, 131);
+    --logo-dark-transparent-bg: rgba(0, 0, 0, .5);
+    --form-bg: rgb(193, 226, 233);
+    --selected-theme-bg: rgb(25, 35, 107);
+    --form-primary-clr: #011836;
+    --form-input-bg: rgb(135, 182, 193);
+
+    /* fonts/sizes */
+    --body-font:  'Roboto', sans-serif;
+    --logo-font: CustomFont;
+    --input-font:'Source Code Pro', monospace;
+    --font-size: clamp(1rem, 1vw, 1.5rem);
+    --logo-font-size: clamp(1.75rem, 3vw, 3rem);
+    --credit-font-size: clamp(.6rem, .5vw, 1rem);
+
+    /* section padding/margin */
+    --section-padding: 3rem clamp(1rem, 5%, 5rem);
+
+    /* images */
+    --hero-image: url('../images/pc-g8778666b6_1920.jpg') no-repeat;
+
+}
+
+/* Default for body */
+
+body {
+    line-height: 1.5;
+    min-height: 100vh;
+    font-size: var(--font-size);
+    font-family: var(--body-font);
+    background-color: var(--primary-bg);
+    color: var(--light-text-clr);
+}
+a {
+    color: inherit;
+}
+
+h2 {
+    color: var(--form-primary-clr);
+}
+li {
+    list-style: none;
+}
+
+/* select theme */
+
+.select_wrap {
+    position:absolute;
+    z-index: 2;
+    top: 20px;
+    right: 10vw;
+}
+
+.select_wrap .select_ul {
+    margin-top: .5rem;
+    display: none;
+}
+
+.select_ul.active {
+    display: block;
+    transition: .5s ease-in;
+}
+
+.default_option.bg_color {
+    background-color: var(--selected-theme-bg);
+}
+
+
+.option{
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+    width: 180px;
+    height: 45px;
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: .5s ease;
+    background-color: var(--form-bg);
+    font-size: 1rem;
+    justify-content: space-between;
+}
+.option label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.icon {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    font-size: 14px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--form-input-bg);
+    transition: .5s ease;
+}
+
+.icon.icon_rotate {
+    transform: rotate(180deg);
+}
+
+
+li.option:hover,
+li.option:focus {
+    background-color: var(--form-input-bg);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* image section */
+.hero_image-section {
+    background: var(--hero-image);
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.logo {
+    background-color: var(--logo-dark-transparent-bg);
+    color: var(--light-text-clr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem .1rem;
+    gap: 1rem;
+    height: 100%;
+}
+
+.logo img {
+    width: min(80px, 25%, 14vw);
+}
+.logo h1 {
+    font-size: var(--logo-font-size);
+    font-family: var(--logo-font);
+}
+
+.credit {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    color: var(--light-text-clr);
+    font-size: var(--credit-font-size);
+    padding: .5rem;
+}
+
+
+/* sign-up form section */
+.sign_up-section {
+    padding: var(--section-padding);
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.dummy_text {
+    font-weight: bold;
+}
+.dummy_text > p + p {
+    margin-bottom: 1rem;
+}
+.dummy_text > .remote_text {
+    word-spacing: 3px;
+}
+
+/* form */
+.form {
+    margin-top: 3rem;
+}
+.form::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    background-color: var(--form-bg);
+    padding-left: 5rem;
+    z-index: -1;
+}
+
+fieldset {
+    border: none;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: .8rem;
+    position: relative;
+}
+.inputs input {
+    all: initial;
+    padding: .4rem;
+    background-color: var(--form-input-bg);
+    border: none;
+    border-radius: 5px;
+    padding-left: .5rem;
+    color: var(--light-text-clr);
+    font-family: var(--input-font);
+}
+#first-name,
+#last-name {
+    text-transform: capitalize;
+}
+.inputs input:focus {
+    outline: 2px solid var(--form-primary-clr);
+}
+
+.inputs input::placeholder {
+    color: var(--light-text-second-clr);
+}
+
+/* CSS hack to force custom style with input autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: all 5000s ease-in-out 0s;
+}
+
+.password_message-container {
+    display: flex;
+}
+
+.password_info {
+    font-size: .6rem;
+    font-family: var(--body-font);
+    text-transform: initial;
+    color: var(--light-text-second-clr);
+    width: 300px;
+
+}
+
+
+.password_info-left p,
+.password_info-right p {
+    width: 240px;
+}
+
+.password_error {
+    display: none;
+    gap: .5rem;
+    margin-top: .5rem;
+}
+.password_error-message,
+.password_error-icon {
+    color: var(--form-primary-clr);
+}
+
+.password_error-message {
+    font-size: .7rem;
+}
+.password_error-icon {
+    font-size: .8rem;
+}
+
+
+#password-info p {
+    display: inline;
+}
+.password_info h3 {
+    color: var(--light-text-second-clr);
+}
+
+.closed_eye{
+    display: block;
+    position: absolute;
+    right: 10px;
+    bottom: 55px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.mobile-eye {
+    bottom: 10px;
+}
+
+.valid {
+    color: var(--form-primary-clr);
+}
+
+.invalid {
+    color: GRAY;
+  }
+
+
+.submit_btn,
+.modal_BTN {
+    border: none;
+    padding: .8rem 3rem;
+    margin-top: 1rem;
+    background-color: var(--form-primary-clr);
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: bold;
+    color: var(--primary-bg);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.log_in {
+    margin-top: 2rem;
+}
+.log_in a {
+    text-decoration: none;
+    color: var(--form-primary-clr);
+}
+
+@media (min-width: 62rem) {
+    .content {
+        flex-direction: row;
+    }
+
+    .hero_image-section {
+        height: 100vh;
+        width: min(80ch, 100vw - 2rem);
+    }
+
+    .logo {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .dummy_text {
+        width: max(40ch, 55ch);
+    }
+
+    .form {
+        padding: 4rem 2rem 4rem 0;
+        position: relative;
+    }
+
+    .sign_up-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+    }
+
+    fieldset {
+        display: flex;
+        flex-flow: row wrap;
+        column-gap: 3rem;
+    }
+    .inputs {
+        width: 270px;
+        min-width: 150px;
+    }
+
+    .mobile-eye {
+        bottom: 55px;
+    }
+}
