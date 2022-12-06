@@ -34,7 +34,7 @@
     --section-padding: 3rem clamp(1rem, 5%, 5rem);
 
     /* images */
-    --hero-image: url('../images/christian-wiediger-XfSk_BMLj0A-unsplash.jpg') no-repeat;
+    --hero-image: url('./images/christian-wiediger-XfSk_BMLj0A-unsplash.jpg') no-repeat;
 
 }
 
@@ -61,7 +61,7 @@
     --section-padding: 3rem clamp(1rem, 5%, 5rem);
 
     /* images */
-    --hero-image: url('../images/christian-wiediger-KV2vFOYItcY-unsplash.jpg') no-repeat;
+    --hero-image: url('./images/christian-wiediger-KV2vFOYItcY-unsplash.jpg') no-repeat;
 
 }
 
@@ -88,7 +88,7 @@
     --section-padding: 3rem clamp(1rem, 5%, 5rem);
 
     /* images */
-    --hero-image: url('../images/pc-g8778666b6_1920.jpg') no-repeat;
+    --hero-image: url('./images/pc-g8778666b6_1920.jpg') no-repeat;
 
 }
 
